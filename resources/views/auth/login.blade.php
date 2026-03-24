@@ -12,7 +12,7 @@
 
     <h1>Inicio de sesion</h1>
     <br>
-
+    
     <form action="{{ route('acceso.store') }}" method="POST">
 
         @csrf

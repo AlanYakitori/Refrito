@@ -30,7 +30,6 @@
         @endif
     </div>
 
-    @include('partials.alerts')
 
     <table class="table table-striped table-hover table-bordered shadow-sm align-middle">
         <thead class="table-dark">
