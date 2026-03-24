@@ -11,7 +11,7 @@
 
 </head>
 <body>
-    
+    <h1>hola</h1>
     <div class="container p-5 my-5 border">
         @yield('content')
     </div>
