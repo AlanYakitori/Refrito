@@ -42,3 +42,20 @@
         }, 5000); // Lo dejamos 5 segundos porque los errores suelen requerir más lectura
     </script>
 @endif
+
+@if(session('warning'))
+    <div id="alerta-warning" class="alert alert-warning alert-dismissible d-flex align-items-center fade show" role="alert">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <strong class="mx-2"> ¡Atención! </strong> {{ session('warning') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <script>
+        setTimeout(() => {
+            let alertaWarn = document.getElementById('alerta-warning');
+            if (alertaWarn) {
+                alertaWarn.classList.remove('show');
+                setTimeout(() => alertaWarn.remove(), 500);
+            }
+        }, 5000);
+    </script>
+@endif

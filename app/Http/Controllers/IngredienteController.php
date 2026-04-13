@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ingrediente;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 
 class IngredienteController extends Controller
@@ -12,8 +13,8 @@ class IngredienteController extends Controller
      */
     public function index()
     {
-        $ingredientes = Ingrediente::all();
-        return view('Ingredientes.index', compact('ingredientes'));
+        $ingredientes = Ingrediente::where('user_id', auth()->id())->get();
+        return view('ingredientes.index', compact('ingredientes'));
     }
 
     /**
@@ -29,14 +30,21 @@ class IngredienteController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre' => 'required',
+            'peso' => 'required',
+            'categoria' => 'required'
+        ]);
+
         Ingrediente::create([
+            'user_id' => auth()->id(), 
             'nombre' => $request->nombre,
             'peso' => $request->peso,
             'categoria' => $request->categoria
         ]);
 
-        return redirect()->route('ingredientes.create');
-    }
+        return redirect()->route('ingredientes.index')->with('success', 'Ingrediente guardado en tu alacena.');
+    }   
 
     /**
      * Display the specified resource.
@@ -69,11 +77,38 @@ class IngredienteController extends Controller
     }
 
    
-    
     public function destroy(Ingrediente $ingrediente)
     {
         $ingrediente -> delete();
 
         return redirect()->route('ingredientes.index')->with('success', 'Ingrediente eliminado');
+    }
+
+
+    //Metodo para home
+    public function home()
+    {
+        // 1. Petición a la API
+        $response = Http::get('https://api.spoonacular.com/recipes/complexSearch', [
+            'query'  => 'Chicken',
+            'number' => 4,
+            'apiKey' => config('services.food.key'),
+        ]);
+
+        $chicken = $response->json()['results'] ?? [];
+
+        return view('ingredientes.home', compact('chicken'));
+    }
+
+    public function explorar()
+    {
+        $response = Http::get('https://api.spoonacular.com/recipes/random', [
+            'number' => 8, 
+            'apiKey' => config('services.food.key'),
+        ]);
+
+        $recetasAleatorias = $response->json()['recipes'] ?? [];
+
+        return view('ingredientes.explorar', compact('recetasAleatorias'));
     }
 }

@@ -24,7 +24,7 @@
             <span class="input-group-text bg-primary text-white" id="basic-addon1">
                 <i class="fa-solid fa-drumstick-bite"></i>
             </span>
-            <input type="text" name="nombre" placeholder="Ej. Pechuga de Pollo" class="form-control" required>
+            <input type="text" name="nombre" class="form-control" required>
         </div>
 
         <label class="form-label fw-semibold text-secondary">Peso / Cantidad (gr/kg)</label>
@@ -32,7 +32,7 @@
             <span class="input-group-text bg-primary text-white" id="basic-addon1">
                 <i class="fa-solid fa-weight-scale"></i>
             </span>
-            <input type="number" name="peso" placeholder="0.00" class="form-control" step="0.01" required>
+            <input type="number" name="peso" class="form-control" step="0.01" required>
         </div>
 
         <label class="form-label fw-semibold text-secondary">Categoría del Ingrediente</label>
@@ -40,7 +40,7 @@
             <span class="input-group-text bg-primary text-white" id="basic-addon1">
                 <i class="fa-solid fa-layer-group"></i>
             </span>
-            <input type="text" name="categoria" placeholder="Ej. Carnes, Vegetales..." class="form-control" required>
+            <input type="text" name="categoria"  class="form-control" required>
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-end border-top pt-3">

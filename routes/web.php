@@ -3,56 +3,76 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IngredienteController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FavoritoController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('acceso'); 
 });
 
-Route::middleware(['auth'])->group(function () {
-    Route::resource('ingredientes', IngredienteController::class);
-});
-
-
-//Ruta para consultar
-route::get('/ingredientes/{id}/edit',[
-    IngredienteController::class, 'edit'
-])->name('ingredientes.edit');
-
-
-//Ruta para actualizar
-Route::put('/ingredientes/{id}',[
-    IngredienteController::class, 'update'
-])->name('ingredientes.update');
-
-
-//Ruta para mostrar el formulario de registro
 Route::get('/registro', [
     AuthController::class, 'registerForm'
 ])->name('registro');
 
-//Ruta para manejar el registro del usuario
 Route::post('/registro', [
     AuthController::class, 'register'
 ])->name('registro.store');
 
-//Ruta para mostrar el formulario de inicio de sesion
 Route::get('/acceso', [
     AuthController::class, 'loginForm'
 ])->name('acceso');
 
-//Ruta para verificar el inicio de sesion
 Route::post('/acceso', [
     AuthController::class, 'login'
 ])->name('acceso.store');
 
-//Ruta para cerrar sesion
-Route::post('/cerrar', [
-    AuthController::class, 'logout' 
-])->name('cerrar');
+Route::middleware(['auth'])->group(function () {
+    
+    Route::get('/home', [
+        IngredienteController::class, 'home'
+    ])->name('home');
 
-Route::middleware(['admin'])->group(function () {
-    Route::get('/admin-dashboard',[
-        AuthController::class, 'adminDashboard'
-    ])->name('admin-dashboard');
+    Route::get('/explorar', [
+        IngredienteController::class, 'explorar'
+    ])->name('explorar');
+
+    Route::post('/cerrar', [
+        AuthController::class, 'logout' 
+    ])->name('cerrar');
+
+    Route::resource('ingredientes', IngredienteController::class);
+
+    Route::get('/mis-favoritos', [
+        FavoritoController::class, 'index'
+    ])->name('favoritos.index');
+
+    Route::post('/mis-favoritos', [
+        FavoritoController::class, 'store'
+    ])->name('favoritos.store');
+
+    Route::put('/mis-favoritos/{favorito}', [
+        FavoritoController::class, 'update'
+    ])->name('favoritos.update');
+
+    Route::delete('/mis-favoritos/{favorito}', [
+        FavoritoController::class, 'destroy'
+    ])->name('favoritos.destroy');
 });
 
+Route::middleware(['auth', 'admin'])->group(function () {
+    
+    Route::get('/admin-dashboard', [
+        AuthController::class, 'adminDashboard'
+    ])->name('admin-dashboard');
+    
+    Route::get('/usuarios/{usuario}/edit', [
+        AuthController::class, 'editUsuario'
+    ])->name('usuarios.edit');
+
+    Route::put('/usuarios/{usuario}', [
+        AuthController::class, 'updateUsuario'
+    ])->name('usuarios.update');
+
+    Route::delete('/usuarios/{usuario}', [
+        AuthController::class, 'destroyUsuario'
+    ])->name('usuarios.destroy');
+});

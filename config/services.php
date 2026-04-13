@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'food' => [
+        'key' => env('FOOD_KEY'),
+    ]
+
 ];

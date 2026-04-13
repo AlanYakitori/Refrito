@@ -1,0 +1,200 @@
+/* Importamos la fuente Poppins directamente por si no la tienes en el HTML */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+    /* Paleta de colores limpia y moderna */
+    --primary-green: #2ecc71; /* Verde moderno y vibrante para botones */
+    --bg-light: #f8f9fa;      /* Gris casi blanco para el fondo general */
+    --surface-white: #ffffff; /* Blanco puro para tarjetas y contenedores */
+    --text-main: #2d3436;     /* Gris muy oscuro (casi negro) para textos */
+    --text-muted: #636e72;    /* Gris claro para subtítulos */
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.poppins-bold {
+    font-weight: 700;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.main-container {
+    display: flex;
+    margin: 20px auto;
+    max-width: 1400px;
+    min-height: 90vh;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--surface-white);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Sombra suave */
+}
+
+/* --- SIDEBAR (Menú Lateral) --- */
+.sidebar {
+    width: 250px;
+    padding: 30px 20px;
+    background: #fdfdfd;
+    border-right: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary-green);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: var(--text-muted);
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.sidebar a:hover, .sidebar a.active {
+    background: #292929;
+    color: var(--primary-green);
+}
+
+.logout {
+    color: #e74c3c !important; /* Rojo para cerrar sesión */
+    margin-top: auto;
+}
+
+.logout:hover {
+    background: #fceceb !important;
+}
+
+/* --- CONTENIDO CENTRAL --- */
+.content {
+    flex: 1;
+    padding: 40px 50px;
+    background: var(--bg-light);
+    overflow-y: auto;
+}
+
+/* --- BARRA SUPERIOR (Toolbar) --- */
+.toolbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+.menu-links {
+    display: flex;
+    gap: 15px;
+}
+
+.menu-links a {
+    padding: 8px 20px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.menu-links a:hover {
+    background: var(--primary-green);
+    color: white;
+}
+
+/* --- SECCIÓN HERO --- */
+.hero {
+    background: transparent;
+    margin: 0 0 40px 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 15px;
+    color: var(--text-main);
+}
+
+.hero-text p {
+    color: var(--text-muted);
+    font-size: 16px;
+    max-width: 400px;
+    margin-bottom: 25px;
+}
+
+.more-btn {
+    background: var(--primary-green);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+    transition: transform 0.2s;
+}
+
+.more-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* --- TARJETAS DE RECETAS (Spoonacular) --- */
+.recetas {
+    display: grid;
+    /* Ajusta automáticamente cuántas tarjetas caben según el tamaño de la pantalla */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    width: 100%;
+}
+
+.receta {
+    background: var(--surface-white);
+    border-radius: 16px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.receta:hover {
+    transform: translateY(-5px); /* Efecto de flotar */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.receta img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover; /* Recorta la imagen sin aplastarla ni estirarla */
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.receta h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin: 0 0 15px 0;
+    line-height: 1.3;
+}

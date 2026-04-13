@@ -17,17 +17,8 @@
         <a href="{{ route('ingredientes.create') }}" class="text-decoration-none">
             <button class="btn btn-success me-3 shadow-sm"><i class="fa-solid fa-plus me-1"></i> Agregar Ingrediente</button>
         </a>
-        <form action="{{route('cerrar')}}" method="POST">
-            @csrf
-            <button class="btn btn-danger me-3">Cerrar sesion</button>
-        </form>
-        @if(auth()->user()->is_admin)
-            
-            <a href="{{ route('admin-dashboard') }}" class="btn btn-secondary mb-3">
-                Panel Admin
-            </a>
 
-        @endif
+       
     </div>
 
 
