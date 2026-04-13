@@ -15,7 +15,7 @@
 
         @auth
             <aside class="sidebar">
-                <h2 class="logo">Refrito</h2>
+                <a href="{{ route('home') }}" style="text-decoration: none;"><h2 class="logo">Refrito</h2></a>
                 <nav>
                     <a href="{{ route('home') }}">Inicio</a>
                     <a href="{{ route('favoritos.index') }}">Favoritos</a>

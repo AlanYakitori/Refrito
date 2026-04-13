@@ -38,7 +38,7 @@ class AuthController extends Controller
         //Inicia sesion de forma automatica
         Auth::login($user);
 
-        return redirect()->route('ingredientes.index');
+        return redirect()->route('home');
 
     }
 
@@ -60,7 +60,7 @@ class AuthController extends Controller
             
             $request -> session() -> regenerate();
             //Redireccionar al usuario con su sesion iniciada
-            return redirect()->route('ingredientes.index');
+            return redirect()->route('home');
 
         }
 

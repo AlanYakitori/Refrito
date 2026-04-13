@@ -1,18 +1,8 @@
-/* Importamos la fuente Poppins directamente por si no la tienes en el HTML */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
-:root {
-    /* Paleta de colores limpia y moderna */
-    --primary-green: #2ecc71; /* Verde moderno y vibrante para botones */
-    --bg-light: #f8f9fa;      /* Gris casi blanco para el fondo general */
-    --surface-white: #ffffff; /* Blanco puro para tarjetas y contenedores */
-    --text-main: #2d3436;     /* Gris muy oscuro (casi negro) para textos */
-    --text-muted: #636e72;    /* Gris claro para subtítulos */
-}
-
 body {
-    background-color: var(--bg-light);
-    color: var(--text-main);
+    background-color: #e9ecef;
+    color: #2d3436;
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
@@ -22,7 +12,6 @@ body {
     font-weight: 700;
 }
 
-/* --- CONTENEDOR PRINCIPAL --- */
 .main-container {
     display: flex;
     margin: 20px auto;
@@ -30,16 +19,15 @@ body {
     min-height: 90vh;
     border-radius: 20px;
     overflow: hidden;
-    background: var(--surface-white);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Sombra suave */
+    background-color: #f8f9fa;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
-/* --- SIDEBAR (Menú Lateral) --- */
 .sidebar {
     width: 250px;
     padding: 30px 20px;
-    background: #fdfdfd;
-    border-right: 1px solid #f0f0f0;
+    background-color: #dff3db;
+    border-right: 1px solid rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -48,7 +36,7 @@ body {
 .logo {
     font-size: 28px;
     font-weight: 800;
-    color: var(--primary-green);
+    color: #2ecc71;
     margin-bottom: 40px;
     text-align: center;
 }
@@ -61,7 +49,7 @@ body {
 
 .sidebar a {
     text-decoration: none;
-    color: var(--text-muted);
+    color: #2d3436;
     padding: 12px 20px;
     border-radius: 12px;
     font-weight: 500;
@@ -69,28 +57,26 @@ body {
 }
 
 .sidebar a:hover, .sidebar a.active {
-    background: #292929;
-    color: var(--primary-green);
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #2ecc71;
 }
 
 .logout {
-    color: #e74c3c !important; /* Rojo para cerrar sesión */
+    color: #e74c3c !important;
     margin-top: auto;
 }
 
 .logout:hover {
-    background: #fceceb !important;
+    background-color: rgba(231, 76, 60, 0.1) !important;
 }
 
-/* --- CONTENIDO CENTRAL --- */
 .content {
     flex: 1;
     padding: 40px 50px;
-    background: var(--bg-light);
+    background-color: #f8f9fa;
     overflow-y: auto;
 }
 
-/* --- BARRA SUPERIOR (Toolbar) --- */
 .toolbar {
     display: flex;
     justify-content: flex-end;
@@ -106,18 +92,17 @@ body {
 .menu-links a {
     padding: 8px 20px;
     text-decoration: none;
-    color: var(--text-muted);
+    color: #636e72;
     font-weight: 500;
     border-radius: 20px;
     transition: all 0.3s ease;
 }
 
 .menu-links a:hover {
-    background: var(--primary-green);
+    background-color: #2ecc71;
     color: white;
 }
 
-/* --- SECCIÓN HERO --- */
 .hero {
     background: transparent;
     margin: 0 0 40px 0;
@@ -132,18 +117,18 @@ body {
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 15px;
-    color: var(--text-main);
+    color: #2d3436;
 }
 
 .hero-text p {
-    color: var(--text-muted);
+    color: #636e72;
     font-size: 16px;
     max-width: 400px;
     margin-bottom: 25px;
 }
 
 .more-btn {
-    background: var(--primary-green);
+    background-color: #2ecc71;
     color: white;
     border: none;
     padding: 12px 30px;
@@ -158,17 +143,15 @@ body {
     transform: translateY(-2px);
 }
 
-/* --- TARJETAS DE RECETAS (Spoonacular) --- */
 .recetas {
     display: grid;
-    /* Ajusta automáticamente cuántas tarjetas caben según el tamaño de la pantalla */
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 25px;
     width: 100%;
 }
 
 .receta {
-    background: var(--surface-white);
+    background-color: #ffffff;
     border-radius: 16px;
     padding: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.04);
@@ -179,14 +162,14 @@ body {
 }
 
 .receta:hover {
-    transform: translateY(-5px); /* Efecto de flotar */
+    transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
 .receta img {
     width: 100%;
     height: 160px;
-    object-fit: cover; /* Recorta la imagen sin aplastarla ni estirarla */
+    object-fit: cover;
     border-radius: 12px;
     margin-bottom: 15px;
 }
@@ -194,7 +177,7 @@ body {
 .receta h4 {
     font-size: 16px;
     font-weight: 600;
-    color: var(--text-main);
+    color: #2d3436;
     margin: 0 0 15px 0;
     line-height: 1.3;
 }
