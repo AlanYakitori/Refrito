@@ -25,13 +25,11 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title h6 fw-bold text-dark mb-3">{{ $receta['title'] ?? 'Sin título' }}</h5>
                         
-                        {{-- Detalles rápidos si la API los manda --}}
                         <div class="mb-3 mt-auto">
                             <span class="badge bg-light text-secondary border me-1"><i class="fa-regular fa-clock"></i> {{ $receta['readyInMinutes'] ?? '--' }} min</span>
                             <span class="badge bg-light text-secondary border"><i class="fa-solid fa-user-group"></i> {{ $receta['servings'] ?? '--' }} porciones</span>
                         </div>
 
-                        {{-- Botón para guardar en favoritos (Reutilizando tu CRUD) --}}
                         <form action="{{ route('favoritos.store') }}" method="POST" class="mt-auto">
                             @csrf
                             <input type="hidden" name="recipe_id" value="{{ $receta['id'] }}">

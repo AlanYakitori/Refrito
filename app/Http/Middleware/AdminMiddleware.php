@@ -23,7 +23,7 @@ class AdminMiddleware
         }
 
         if(!Auth::user()->is_admin){
-            return redirect()->route('ingredientes.index')->with('error',"No cuentas con permisos de administrador");
+            return redirect()->route('home')->with('warning',"No cuentas con permisos de administrador");
         }
 
         return $next($request);

@@ -55,7 +55,7 @@
                             @if($usuario->is_admin)
                                 <span class="badge bg-primary">Administrador</span>
                             @else
-                                <span class="badge bg-secondary">Usuario Normal</span>
+                                <span class="badge bg-secondary">Cuenta normal</span>
                             @endif
                         </td>
                         <td class="text-center">

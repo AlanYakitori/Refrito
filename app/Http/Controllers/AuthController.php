@@ -109,7 +109,7 @@ class AuthController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,email,' . $usuario->id, // Ignora el email del usuario actual en la regla unique
+            'email' => 'require d|email|unique:users,email,' . $usuario->id, 
             'phone' => 'required',
         ]);
 
@@ -117,7 +117,7 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
-            'is_admin' => $request->has('is_admin'), // Si el checkbox está marcado, es admin
+            'is_admin' => $request->has('is_admin'), 
         ]);
 
         return redirect()->route('admin-dashboard')->with('success', 'Datos del usuario actualizados.');

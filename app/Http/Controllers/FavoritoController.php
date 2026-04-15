@@ -47,7 +47,7 @@ class FavoritoController extends Controller
         }
 
         $request->validate([
-            'notes' => 'nullable|string|max:500' // Notas de hasta 500 letras
+            'notes' => 'nullable|string|max:500' 
         ]);
 
         $favorito->update([
