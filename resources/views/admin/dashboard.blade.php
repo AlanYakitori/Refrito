@@ -15,22 +15,6 @@
         <i class="fa-solid fa-users-gear text-primary me-2"></i>Gestión de Usuarios
     </h1>
 
-    {{-- Botones de acción superior --}}
-    <div class="d-flex justify-content-end mb-3">
-        <a href="{{ route('registro') }}" class="btn btn-success me-3 shadow-sm">
-            <i class="fa-solid fa-user-plus me-1"></i> Registrar Nuevo Usuario
-        </a>
-        <a href="{{ route('ingredientes.index') }}" class="btn btn-secondary me-3 shadow-sm">
-            <i class="fa-solid fa-arrow-left me-1"></i> Volver a Ingredientes
-        </a>
-        <form action="{{ route('cerrar') }}" method="POST">
-            @csrf
-            <button class="btn btn-danger shadow-sm">
-                <i class="fa-solid fa-right-from-bracket me-1"></i> Cerrar sesión
-            </button>
-        </form>
-    </div>
-
     {{-- Tabla de Usuarios --}}
     <div class="table-responsive bg-white p-4 shadow-sm rounded border">
         <table class="table table-striped table-hover align-middle">

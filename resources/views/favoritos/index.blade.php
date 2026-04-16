@@ -41,7 +41,7 @@
                                 <label class="form-label text-secondary small fw-semibold">
                                     <i class="fa-solid fa-pencil me-1"></i>Mis notas:
                                 </label>
-                                <textarea name="notes" class="form-control mb-2" rows="2" placeholder="Ej. Queda mejor con menos sal...">{{ $favorito->notes }}</textarea>
+                                <textarea name="notes" class="form-control mb-2" rows="2">{{ $favorito->notes }}</textarea>
                                 <button type="submit" class="btn btn-sm btn-outline-primary w-100">
                                     <i class="fa-solid fa-floppy-disk me-1"></i> Guardar Nota
                                 </button>
