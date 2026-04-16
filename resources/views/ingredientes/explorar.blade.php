@@ -8,13 +8,6 @@
         </h1>
     </div>
 
-    <div class="d-flex gap-3 mb-5 overflow-auto pb-2">
-        <span class="badge bg-success bg-opacity-25 text-success fs-6 px-4 py-2 rounded-pill"><i class="fa-solid fa-leaf me-1"></i> Vegetariano</span>
-        <span class="badge bg-danger bg-opacity-25 text-danger fs-6 px-4 py-2 rounded-pill"><i class="fa-solid fa-fire-flame-curved me-1"></i> Picante</span>
-        <span class="badge bg-warning bg-opacity-25 text-warning fs-6 px-4 py-2 rounded-pill"><i class="fa-solid fa-cookie-bite me-1"></i> Postres</span>
-        <span class="badge bg-primary bg-opacity-25 text-primary fs-6 px-4 py-2 rounded-pill"><i class="fa-solid fa-fish me-1"></i> Mariscos</span>
-    </div>
-
     <h3 class="h4 fw-bold text-secondary border-bottom pb-2 mb-4">Sugerencias para hoy</h3>
 
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">

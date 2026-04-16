@@ -15,7 +15,6 @@
         <span class="text-secondary">{{ $usuario->name }}</span>
     </h1>
 
-    {{-- Mostramos alertas de error de validación por si el correo ya existe o algo falla --}}
     @if ($errors->any())
         <div class="alert alert-danger shadow-sm">
             <ul class="mb-0">
